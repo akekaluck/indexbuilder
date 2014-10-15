@@ -1,4 +1,4 @@
-indexbuilder
+Index builder
 ============
 
-indexbuilder
+index builder

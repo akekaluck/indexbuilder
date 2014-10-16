@@ -3,36 +3,34 @@
  */
 var    root      = '../../../../',
     expect      = require('chai').expect,
-    config = require(root + 'config/config'),
-    gmi  = require(root + 'lib/aggregator/gmi'),
     nock = require('nock'),
-    request = require('request');
-
-describe('gmi spect', function () {
-    //var couchdb = nock(config.gmiUrl).get('/netcool/?Severity=1&per_page=2').reply(202, {id:10,nodename:'test'});
+    config = require(root + 'config/config'),
+    aggregator  = require(root + 'lib/aggregator/gmi');
 
 
-    it('Request event from GMI RESTFul', function() {
-        //var reply =  {id:10 ,nodename:'test'};
-        //var g = new gmi();
+describe('Aggregator', function () {
+    describe('gmi', function () {
+        var couchdb = nock(config.gmiUrl).get('/netcool/?Severity=1&per_page=2')
+            .reply(202,
+            {id: 10, nodename: 'test'});
 
-        request('http://www.google.com', function (error, response, body) {
-            console.log("Test Mocha");
-            if (!error && response.statusCode == 200) {
+        it('Return 202', function () {
+            var reply = {id: 10, nodename: 'test'};
+            var gmi = new aggregator();
 
-                console.log(body) // Print the google web page.
-            }
-        })
-//        g.getEvents().on('error', function(error){
-//                console.log(error);
-//            })
-//            .on('response', function(response){
-//                console.log(response);
-//                response.on('data', function(data){
-//                    console.log(JSON.parse(data));
-//                    var resdata = JSON.parse(data);
-//                    expect(reply.id).to.equal(resdata.id);
-//                });
-//            });
+            gmi.getEvents(function (error, response, body) {
+                console.log(JSON.parse(body));
+                var resdata = JSON.parse(body);
+                expect(reply.id).to.equal(resdata.id);
+            });
+        });
+
+        it('Return 404 not found', function () {
+
+        });
+
+        it('Return 404 not found', function () {
+
+        });
     });
 });

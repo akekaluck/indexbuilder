@@ -1,0 +1,37 @@
+{
+  "name": "indexbuilder",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akekaluck/indexbuilder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akekaluck/indexbuilder/issues"
+  },
+  "homepage": "https://github.com/akekaluck/indexbuilder",
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-nodeunit": "~0.4.1",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-mocha-istanbul": "^2.1.0",
+    "grunt-mocha-test": "^0.12.1",
+    "istanbul": "^0.3.2",
+    "jshint": "^2.5.6",
+    "mocha": "^1.21.5",
+    "nock": "^0.48.0",
+    "request": "^2.45.0"
+  },
+  "directories": {
+    "test": "test"
+  }
+}
